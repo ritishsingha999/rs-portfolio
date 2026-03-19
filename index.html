@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ritish Singha — Software Engineer</title>
+    <meta name="description"
+        content="Portfolio of Ritish Singha — Full-stack Software Engineer specializing in Python, Django, and Machine Learning. BSc in CSE at East Delta University.">
+    <meta name="keywords"
+        content="Ritish Singha, Software Engineer, Python, Django, Machine Learning, Portfolio, Full-Stack Developer">
+    <meta name="author" content="Ritish Singha">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ritish Singha — Software Engineer">
+    <meta property="og:description"
+        content="Full-stack Software Engineer specializing in Python, Django, and Machine Learning.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="loader-content">
+            <span class="logo-bracket">&lt;</span><span class="pulse-text">INIT</span><span class="logo-bracket">
+                /&gt;</span>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <div class="loading-text">LOADING DEPENDENCIES...</div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+    <div id="mouse-glow"></div>
+
+    <!-- Scroll Navigation -->
+    <div class="scroll-navigator" id="scroll-navigator">
+        <button class="nav-dir-btn" id="scroll-up-btn" aria-label="Scroll Up">
+            <i data-lucide="chevron-up"></i>
+        </button>
+        <div class="scroll-spinner" id="scroll-spinner">
+            <svg class="progress-ring" viewBox="0 0 50 50">
+                <circle class="progress-ring-circle bg-circle" cx="25" cy="25" r="22"></circle>
+                <circle class="progress-ring-circle fg-circle" cx="25" cy="25" r="22" id="progress-circle"></circle>
+            </svg>
+        </div>
+        <button class="nav-dir-btn" id="scroll-down-btn" aria-label="Scroll Down">
+            <i data-lucide="chevron-down"></i>
+        </button>
+    </div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo" aria-label="Logo">
+                <div class="logo-text-fade">
+                    <span class="logo-bracket">&lt;</span>RS<span class="logo-bracket"> /&gt;</span>
+                </div>
+                <svg class="signature-svg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="29" class="signature-text">Ritish Singha</text>
+                </svg>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about" class="nav-link">~/about</a></li>
+                <li><a href="#skills" class="nav-link">~/skills</a></li>
+                <li><a href="#experience" class="nav-link">~/experience</a></li>
+                <li><a href="#projects" class="nav-link">~/projects</a></li>
+                <li><a href="#blog" class="nav-link">~/blog</a></li>
+                <li><a href="#contact" class="nav-link">~/contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="terminal-toggle-btn" id="terminal-toggle" aria-label="Open Terminal" title="Press Ctrl+`">
+                    <i data-lucide="terminal"></i>
+                </button>
+                <button class="sound-toggle-btn" id="sound-toggle" aria-label="Toggle Sound" title="Toggle Sound">
+                    <i data-lucide="volume-x" class="sound-off-icon"></i>
+                    <i data-lucide="volume-2" class="sound-on-icon" style="display:none"></i>
+                </button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <i data-lucide="sun" class="sun-icon"></i>
+                    <i data-lucide="moon" class="moon-icon"></i>
+                </button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="system-status">
+                    <span class="status-dot"></span> SYSTEM.STATUS: ONLINE
+                </div>
+                <p class="hero-greeting">Hello, I'm</p>
+                <h1 class="hero-name">Ritish <span class="gradient-text">Singha</span></h1>
+                <div class="hero-typing-wrapper">
+                    <span class="hero-typing-prefix">&gt; </span>
+                    <span id="typed-text" class="typed-text"></span>
+                    <span class="cursor">|</span>
+                </div>
+                <p class="hero-description">
+                    Aspiring Software Engineer with a strong foundation in solving complex problems through efficient
+                    algorithms and building scalable web applications. Full-stack Python Django Developer with proven
+                    experience delivering secure, high-performance applications.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">
+                        <i data-lucide="send" class="btn-icon"></i>
+                        Get In Touch
+                    </a>
+                    <button class="btn btn-outline d-resume-btn" id="hero-resume-btn">
+                        <i data-lucide="download" class="btn-icon"></i>
+                        <span class="btn-text">Download CV</span>
+                    </button>
+                    <a href="#projects" class="btn btn-outline">
+                        <i data-lucide="folder-open" class="btn-icon"></i>
+                        View Projects
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="300">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-label">Problems Solved</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="18">0</span>
+                        <span class="stat-label">GitHub Repos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="151">0</span>
+                        <span class="stat-label">Credits Completed</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-glow"></div>
+                    <div class="hero-image-net"></div>
+                    <img src="assets/hero-img.jpg" alt="Ritish Singha" id="hero-profile-img">
+                    <div class="hero-image-ring"></div>
+                </div>
+                <div class="hero-socials">
+                    <a href="https://github.com/ritishsingha999" target="_blank" rel="noopener" class="social-icon"
+                        aria-label="GitHub">
+                        <i data-lucide="github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ritish-singha/" target="_blank" rel="noopener"
+                        class="social-icon" aria-label="LinkedIn">
+                        <i data-lucide="linkedin"></i>
+                    </a>
+                    <a href="https://codeforces.com/profile/Ritish_Singha" target="_blank" rel="noopener"
+                        class="social-icon" aria-label="Codeforces">
+                        <i data-lucide="code"></i>
+                    </a>
+                    <a href="https://x.com/Ritish_Singha" target="_blank" rel="noopener" class="social-icon"
+                        aria-label="X (Twitter)">
+                        <i data-lucide="twitter"></i>
+                    </a>
+                    <a href="https://stackoverflow.com/users/19225170/ritish" target="_blank" rel="noopener"
+                        class="social-icon" aria-label="Stack Overflow">
+                        <i data-lucide="terminal"></i>
+                    </a>
+                    <a href="https://www.facebook.com/arko.468704/" target="_blank" rel="noopener" class="social-icon"
+                        aria-label="Facebook">
+                        <i data-lucide="facebook"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+            <i data-lucide="chevrons-down"></i>
+        </a>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">
+                <span class="section-number">01.</span> About Me
+            </h2>
+            <div class="about-grid">
+                <div class="about-photos reveal">
+                    <div class="photo-collage photo-grid-3">
+                        <div class="photo-item photo-img-1">
+                            <img src="assets/about-1.jpg" alt="Ritish Singha">
+                        </div>
+                        <div class="photo-item photo-img-2">
+                            <img src="assets/about-2.jpg" alt="Ritish Singha">
+                        </div>
+                        <div class="photo-item photo-img-3">
+                            <img src="assets/about-3.jpg" alt="Ritish Singha">
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content reveal">
+                    <div class="about-text">
+                        <p>
+                            I'm a <strong>Software Engineer</strong> from Chattogram, Bangladesh, currently pursuing my
+                            <strong>BSc in Computer Science & Engineering</strong> at East Delta University (2022–2026).
+                            I have completed 151 out of 166 credits, and I'm working on my thesis on
+                            <em>LLM and Generative Models (GAN variants)</em> under the supervision of Saklain Abdullah.
+                        </p>
+                        <p>
+                            I founded and led <strong>Innova Tech</strong>, a startup with a 12-member team, and I
+                            actively collaborate
+                            on local and international projects. My passion lies in building secure, high-performance
+                            applications,
+                            implementing machine learning algorithms, and solving competitive programming challenges.
+                        </p>
+                        <p>
+                            When I'm not coding, you'll find me organizing university sports events, mentoring peers,
+                            or exploring new technologies. I believe in continuous learning and contributing to the
+                            community.
+                        </p>
+                    </div>
+
+                    <div class="latest-updates">
+                        <h3 class="updates-title"><i data-lucide="terminal" class="updates-icon"></i> ./recent_logs.sh
+                        </h3>
+                        <ul class="updates-list">
+                            <li><span class="update-date">[Mar-2026]</span> Focusing on WGAN & LLM guided Network
+                                Traffic augmentation.</li>
+                            <li><span class="update-date">[Feb-2026]</span> Crossed 300+ problems solved on Codeforces.
+                            </li>
+                            <li><span class="update-date">[Jan-2026]</span> Led Innova Tech to 2nd Runner-Up at EDU
+                                HackFest 2025.</li>
+                        </ul>
+                    </div>
+
+                    <div class="about-info-cards">
+                        <div class="info-card">
+                            <i data-lucide="graduation-cap" class="info-icon"></i>
+                            <div>
+                                <h4>Education</h4>
+                                <p>BSc in CSE — East Delta University</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <i data-lucide="flask-conical" class="info-icon"></i>
+                            <div>
+                                <h4>Current Thesis</h4>
+                                <p>LLM & Generative Models (GAN Variants)</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <i data-lucide="map-pin" class="info-icon"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Chattogram, Bangladesh</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <i data-lucide="mail" class="info-icon"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>ritishsingha899@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coding Music Widget -->
+                    <div class="music-widget">
+                        <div class="music-vinyl" id="music-vinyl">
+                            <div class="vinyl-disc">
+                                <div class="vinyl-label">♪</div>
+                            </div>
+                        </div>
+                        <div class="music-info">
+                            <p class="music-label"><i data-lucide="headphones" class="music-label-icon"></i> Currently coding to...</p>
+                            <h4 class="music-title" id="music-title">Lofi Beats — Chill Vibes</h4>
+                            <p class="music-artist" id="music-artist">ChilledCow</p>
+                            <div class="music-progress">
+                                <div class="music-progress-bar" id="music-progress-bar"></div>
+                            </div>
+                            <div class="music-times">
+                                <span id="music-current-time">0:00</span>
+                                <span id="music-total-time">3:45</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SKILLS ==================== -->
+    <section id="skills" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title reveal">
+                <span class="section-number">02.</span> Skills & Technologies
+            </h2>
+            <div class="skills-wrapper">
+                <div class="skills-grid reveal">
+                    <!-- Languages -->
+                <div class="skill-category">
+                    <div class="skill-category-header">
+                        <i data-lucide="code-2" class="skill-cat-icon"></i>
+                        <h3>Languages</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag" data-level="advanced">Python</span>
+                        <span class="skill-tag" data-level="advanced">C++</span>
+                        <span class="skill-tag" data-level="advanced">C</span>
+                        <span class="skill-tag" data-level="intermediate">C#</span>
+                        <span class="skill-tag" data-level="intermediate">Java</span>
+                        <span class="skill-tag" data-level="intermediate">Kotlin</span>
+                        <span class="skill-tag" data-level="intermediate">JavaScript</span>
+                        <span class="skill-tag" data-level="intermediate">TypeScript</span>
+                        <span class="skill-tag" data-level="advanced">HTML5</span>
+                        <span class="skill-tag" data-level="advanced">CSS3</span>
+                        <span class="skill-tag" data-level="beginner">Assembly</span>
+                    </div>
+                </div>
+                <!-- Frameworks -->
+                <div class="skill-category">
+                    <div class="skill-category-header">
+                        <i data-lucide="layers" class="skill-cat-icon"></i>
+                        <h3>Frameworks & Libraries</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag" data-level="advanced">Django</span>
+                        <span class="skill-tag" data-level="advanced">Django REST Framework</span>
+                        <span class="skill-tag" data-level="intermediate">.NET</span>
+                        <span class="skill-tag" data-level="intermediate">Bootstrap</span>
+                        <span class="skill-tag" data-level="intermediate">Tailwind CSS</span>
+                    </div>
+                </div>
+                <!-- Databases -->
+                <div class="skill-category">
+                    <div class="skill-category-header">
+                        <i data-lucide="database" class="skill-cat-icon"></i>
+                        <h3>Databases</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag" data-level="advanced">PostgreSQL</span>
+                        <span class="skill-tag" data-level="advanced">MySQL</span>
+                        <span class="skill-tag" data-level="intermediate">SQLite</span>
+                    </div>
+                </div>
+                <!-- Tools -->
+                <div class="skill-category">
+                    <div class="skill-category-header">
+                        <i data-lucide="wrench" class="skill-cat-icon"></i>
+                        <h3>Tools & Platforms</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag" data-level="advanced">Git</span>
+                        <span class="skill-tag" data-level="advanced">GitHub</span>
+                        <span class="skill-tag" data-level="intermediate">GitLab</span>
+                        <span class="skill-tag" data-level="intermediate">Docker</span>
+                        <span class="skill-tag" data-level="intermediate">AWS</span>
+                        <span class="skill-tag" data-level="intermediate">Heroku</span>
+                        <span class="skill-tag" data-level="intermediate">Postman</span>
+                        <span class="skill-tag" data-level="intermediate">Linux</span>
+                    </div>
+                </div>
+                <!-- Methodologies -->
+                <div class="skill-category">
+                    <div class="skill-category-header">
+                        <i data-lucide="settings" class="skill-cat-icon"></i>
+                        <h3>Methodologies & Specializations</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag" data-level="advanced">RESTful APIs</span>
+                        <span class="skill-tag" data-level="intermediate">Unit Testing</span>
+                        <span class="skill-tag" data-level="intermediate">Integration Testing</span>
+                        <span class="skill-tag" data-level="intermediate">Agile / Scrum</span>
+                        <span class="skill-tag" data-level="intermediate">Django ORM</span>
+                        <span class="skill-tag" data-level="intermediate">Async Programming</span>
+                        <span class="skill-tag" data-level="intermediate">Cloud Deployment</span>
+                        <span class="skill-tag" data-level="intermediate">Machine Learning</span>
+                    </div>
+                </div>
+            </div> <!-- End of skills-grid -->
+            
+            <!-- 3D Skill Sphere -->
+            <div class="skill-sphere-wrapper reveal">
+                <span class="sphere-label"><i data-lucide="mouse-pointer-click"></i> Drag to rotate</span>
+                <div id="skill-sphere" class="skill-sphere"></div>
+            </div>
+        </div> <!-- End of skills-wrapper -->
+    </div> <!-- End of container -->
+</section>
+
+<!-- ==================== EXPERIENCE ==================== -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">
+                <span class="section-number">03.</span> Experience & Achievements
+            </h2>
+            <div class="timeline reveal">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-badge">Leadership</span>
+                        <h3>Founder & Lead — Innova Tech</h3>
+                        <p class="timeline-date">Startup — 1 Year</p>
+                        <p>Founded and led a tech startup with a 12-member team, driving innovation and delivering
+                            technology solutions. Managed the full lifecycle from ideation to execution.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-badge">Competition</span>
+                        <h3>2nd Runner-Up — EDU HackFest 2025</h3>
+                        <p class="timeline-date">55-hour Innovation Sprint • 32 Teams</p>
+                        <p>Secured 2nd Runner-Up position at East Delta University HackFest 2025, a 55-hour innovation
+                            sprint competing against 32 teams with cutting-edge solutions.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-badge">Competition</span>
+                        <h3>ICPC Asia Dhaka Regional — 2023</h3>
+                        <p class="timeline-date">Site Online Preliminary Contest</p>
+                        <p>Participated in the prestigious ICPC Asia Dhaka Regional Site Online Preliminary Contest,
+                            showcasing algorithmic problem-solving skills on an international stage.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-badge">Competition</span>
+                        <h3>Premier University IUPC 2024</h3>
+                        <p class="timeline-date">Chittagong Division</p>
+                        <p>Competed in the Inter-University Programming Contest 2024 representing the Chittagong
+                            Division, demonstrating strong algorithmic and competitive programming abilities.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-badge">Problem Solving</span>
+                        <h3>Codeforces — 300+ Problems Solved</h3>
+                        <p class="timeline-date">Active Participant</p>
+                        <p>Solved over 300 problems on Codeforces with active participation in contests. Also active on
+                            LeetCode and CodeChef, consistently sharpening competitive programming skills.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-badge">Freelance</span>
+                        <h3>Remote Developer — International Projects</h3>
+                        <p class="timeline-date">Ongoing</p>
+                        <p>Active remote developer on international projects via freelance platforms. Collaborated with
+                            Hello World Technology BD on local projects, gaining diverse industry exposure.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-badge">Community</span>
+                        <h3>School Volunteer — Sports & Cultural Events</h3>
+                        <p class="timeline-date">Organizer & Monitor</p>
+                        <p>Volunteered as organizer and monitor for school sports and cultural events, demonstrating
+                            leadership, teamwork, and community engagement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROJECTS ==================== -->
+    <section id="projects" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title reveal">
+                <span class="section-number">04.</span> Featured Projects
+            </h2>
+            <div class="projects-grid reveal">
+                <!-- Project 1 -->
+                <div class="project-card" data-modal
+                    data-title="Student Data Store System"
+                    data-github="https://github.com/ritishsingha999/Project_Student_Data_Store"
+                    data-status="Completed"
+                    data-role="Full-Stack Developer"
+                    data-features="Admin panel with full CRUD operations|Privacy controls for public vs private data|Emergency messaging facility for students|Secure authentication & authorization|RESTful API endpoints|Responsive design for all devices"
+                    data-problem="Educational institutions needed a centralized, secure system to manage student records with granular privacy controls and emergency communication capabilities."
+                    data-solution="Built a full-stack Django application with PostgreSQL, implementing role-based access control, real-time messaging, and a clean admin dashboard.">
+                    <div class="project-card-header">
+                        <i data-lucide="folder-git-2" class="project-icon"></i>
+                        <div class="project-links">
+                            <a href="https://github.com/ritishsingha999/Project_Student_Data_Store" target="_blank"
+                                rel="noopener" aria-label="GitHub">
+                                <i data-lucide="github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Student Data Store System</h3>
+                    <p class="project-description">
+                        A full-stack system to store student data with an admin panel, privacy controls for public
+                        access, and an emergency messaging facility for students.
+                    </p>
+                    <div class="project-tags">
+                        <span>Django</span>
+                        <span>PostgreSQL</span>
+                        <span>REST API</span>
+                        <span>Full-Stack</span>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card" data-modal
+                    data-title="Recruitment Management System"
+                    data-github=""
+                    data-status="In Development"
+                    data-role="Lead Developer"
+                    data-features="Applicant Tracking System (ATS)|Automated hiring pipeline workflows|Resume parsing & keyword matching|Interview scheduling & calendar sync|Candidate status dashboard|Email notification system"
+                    data-problem="Traditional recruitment processes are slow and error-prone, with HR teams manually tracking hundreds of applicants across spreadsheets."
+                    data-solution="Designed an intelligent ATS with Django that automates candidate screening, tracks hiring stages, and provides analytics on recruitment efficiency.">
+                    <div class="project-card-header">
+                        <i data-lucide="folder-git-2" class="project-icon"></i>
+                        <div class="project-links">
+                            <a href="#" aria-label="In Development">
+                                <i data-lucide="loader"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Recruitment Management System</h3>
+                    <p class="project-description">
+                        An advanced Recruitment Management System with Applicant Tracking System (ATS), streamlining the
+                        hiring process with automated workflows and candidate management.
+                    </p>
+                    <div class="project-tags">
+                        <span>Django</span>
+                        <span>ATS</span>
+                        <span>Python</span>
+                        <span>Automation</span>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card" data-modal
+                    data-title="Digital Wallet System"
+                    data-github=""
+                    data-status="In Development"
+                    data-role="Backend Developer"
+                    data-features="Secure money transfer & top-up|Transaction history with filters|Balance management dashboard|Multi-factor authentication|QR code payment support|Admin fraud detection panel"
+                    data-problem="Users need a fast, secure way to manage digital payments without relying on traditional banking interfaces that are often slow and unintuitive."
+                    data-solution="Created a secure digital wallet with Django featuring encrypted transactions, real-time balance updates, and an intuitive UI for seamless financial management.">
+                    <div class="project-card-header">
+                        <i data-lucide="folder-git-2" class="project-icon"></i>
+                        <div class="project-links">
+                            <a href="#" aria-label="In Development">
+                                <i data-lucide="loader"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Digital Wallet System</h3>
+                    <p class="project-description">
+                        A secure digital wallet application enabling seamless financial transactions, balance
+                        management, and transaction history with robust security features.
+                    </p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Django</span>
+                        <span>Security</span>
+                        <span>FinTech</span>
+                    </div>
+                </div>
+                <!-- Project 4 -->
+                <div class="project-card" data-modal
+                    data-title="ML: Customer Retention Engine"
+                    data-github="https://github.com/ritishsingha999"
+                    data-status="Completed"
+                    data-role="ML Engineer"
+                    data-features="Predictive customer churn analysis|25% improvement in retention rates|Feature engineering pipeline|Model comparison (Random Forest, XGBoost, SVM)|Data visualization dashboards|Automated retraining pipeline"
+                    data-problem="Businesses lose customers without understanding the warning signs. Manual analysis of user behavior patterns is impossible at scale."
+                    data-solution="Built ML models using Python and scikit-learn that analyze user behavior patterns, predict churn probability, and recommend targeted retention strategies.">
+                    <div class="project-card-header">
+                        <i data-lucide="folder-git-2" class="project-icon"></i>
+                        <div class="project-links">
+                            <a href="https://github.com/ritishsingha999" target="_blank" rel="noopener"
+                                aria-label="GitHub">
+                                <i data-lucide="github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">ML: Customer Retention Engine</h3>
+                    <p class="project-description">
+                        Implemented machine learning algorithms that enhanced user experience, resulting in a 25%
+                        increase in customer retention through predictive analytics and data-driven insights.
+                    </p>
+                    <div class="project-tags">
+                        <span>Machine Learning</span>
+                        <span>Python</span>
+                        <span>Data Science</span>
+                    </div>
+                </div>
+                <!-- Project 5 -->
+                <div class="project-card" data-modal
+                    data-title="Codeforces Solutions Archive"
+                    data-github="https://github.com/ritishsingha999/Codeforces-solution"
+                    data-status="Ongoing"
+                    data-role="Competitive Programmer"
+                    data-features="300+ problems solved & documented|Topics: Graphs, DP, Greedy, Math, Data Structures|Clean, well-commented C++ solutions|Organized by difficulty rating|Contest participation logs|Educational resource for beginners"
+                    data-problem="Competitive programming solutions are often scattered and poorly documented, making it hard for learners to study systematic approaches."
+                    data-solution="Created a structured GitHub repository organizing 300+ Codeforces solutions by topic and difficulty, with clear comments explaining the algorithmic approach.">
+                    <div class="project-card-header">
+                        <i data-lucide="folder-git-2" class="project-icon"></i>
+                        <div class="project-links">
+                            <a href="https://github.com/ritishsingha999/Codeforces-solution" target="_blank"
+                                rel="noopener" aria-label="GitHub">
+                                <i data-lucide="github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Codeforces Solutions Archive</h3>
+                    <p class="project-description">
+                        A comprehensive archive of 300+ competitive programming solutions on Codeforces, covering
+                        diverse algorithmic topics including graphs, DP, greedy, and data structures.
+                    </p>
+                    <div class="project-tags">
+                        <span>C++</span>
+                        <span>Algorithms</span>
+                        <span>Competitive Programming</span>
+                    </div>
+                </div>
+                <!-- Project 6 -->
+                <div class="project-card" data-modal
+                    data-title="Network Traffic WGAN"
+                    data-github="https://github.com/ritishsingha999"
+                    data-status="In Progress (Thesis)"
+                    data-role="Researcher & Developer"
+                    data-features="Wasserstein GAN for synthetic traffic generation|LLM-guided conditioning mechanism|Attack-type semantic encoding|Multi-classifier evaluation framework|Minority attack class improvement|Low false positive rate maintenance"
+                    data-problem="Network Intrusion Detection Systems suffer from scarce and imbalanced labeled training data, particularly for rare attack types, which limits their real-world effectiveness."
+                    data-solution="Developed a novel approach combining WGAN with LLM guidance to generate realistic synthetic network traffic data that preserves statistical properties and improves detection rates.">
+                    <div class="project-card-header">
+                        <i data-lucide="folder-git-2" class="project-icon"></i>
+                        <div class="project-links">
+                            <a href="https://github.com/ritishsingha999" target="_blank" rel="noopener"
+                                aria-label="GitHub">
+                                <i data-lucide="github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Network Traffic WGAN</h3>
+                    <p class="project-description">
+                        Thesis project: Network Traffic Data Augmentation using Wasserstein GAN guided by LLM for
+                        improved intrusion detection system training data generation.
+                    </p>
+                    <div class="project-tags">
+                        <span>WGAN</span>
+                        <span>LLM</span>
+                        <span>Python</span>
+                        <span>Research</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BLOG ==================== -->
+    <section id="blog" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">
+                <span class="section-number">05.</span> Blog & Research
+            </h2>
+            <div class="blog-grid reveal">
+                <!-- Featured Blog Post -->
+                <article class="blog-card blog-featured">
+                    <div class="blog-card-badge">Featured Research</div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-date"><i data-lucide="calendar" class="meta-icon"></i> March 2026</span>
+                            <span class="blog-read-time"><i data-lucide="clock" class="meta-icon"></i> 12 min
+                                read</span>
+                        </div>
+                        <h3 class="blog-title">Network Traffic Data Augmentation Using WGAN Guided by LLM</h3>
+                        <p class="blog-excerpt">
+                            Network Intrusion Detection Systems (NIDS) are critical for cybersecurity, but their
+                            effectiveness is often limited by the scarcity and imbalance of labeled training data. My
+                            thesis explores a novel approach combining <strong>Wasserstein Generative Adversarial
+                                Networks (WGAN)</strong> with <strong>Large Language Model (LLM)</strong> guidance to
+                            generate realistic synthetic network traffic data.
+                        </p>
+                        <p class="blog-excerpt">
+                            Traditional GANs suffer from mode collapse and training instability. WGANs address this by
+                            using the Wasserstein distance (Earth Mover's distance) as the loss function, providing
+                            smoother gradients and more stable training. By integrating LLM guidance, the generator
+                            receives semantic understanding of different traffic patterns — normal browsing, DDoS
+                            attacks, port scanning, and more — producing augmented data that preserves the statistical
+                            properties and temporal correlations of real network traffic.
+                        </p>
+                        <p class="blog-excerpt">
+                            The key contributions include: (1) A novel LLM-guided conditioning mechanism for WGAN that
+                            encodes attack-type semantics, (2) A comprehensive evaluation framework comparing augmented
+                            vs. original datasets on multiple NIDS classifiers, and (3) Demonstrating significant
+                            improvement in detection rates for minority attack classes while maintaining low false
+                            positive rates.
+                        </p>
+                        <div class="blog-tags">
+                            <span>WGAN</span>
+                            <span>LLM</span>
+                            <span>Cybersecurity</span>
+                            <span>Data Augmentation</span>
+                            <span>Deep Learning</span>
+                        </div>
+                        <div class="blog-author">
+                            <img src="assets/profile-main.jpg" alt="Ritish Singha" class="author-avatar">
+                            <div>
+                                <span class="author-name">Ritish Singha</span>
+                                <span class="author-role">BSc Thesis — East Delta University</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-date"><i data-lucide="calendar" class="meta-icon"></i> Feb 2026</span>
+                            <span class="blog-read-time"><i data-lucide="clock" class="meta-icon"></i> 6 min read</span>
+                        </div>
+                        <h3 class="blog-title">My Journey to 300+ Problems on Codeforces</h3>
+                        <p class="blog-excerpt">
+                            From struggling with basic implementation problems to tackling complex graph algorithms —
+                            here's how I approached competitive programming systematically, the resources that helped me
+                            grow, and tips for aspiring competitive programmers.
+                        </p>
+                        <div class="blog-tags">
+                            <span>Competitive Programming</span>
+                            <span>Algorithms</span>
+                            <span>Growth</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-date"><i data-lucide="calendar" class="meta-icon"></i> Jan 2026</span>
+                            <span class="blog-read-time"><i data-lucide="clock" class="meta-icon"></i> 8 min read</span>
+                        </div>
+                        <h3 class="blog-title">Building Scalable APIs with Django REST Framework</h3>
+                        <p class="blog-excerpt">
+                            A deep dive into best practices for building production-ready REST APIs using Django — from
+                            serializers and viewsets to authentication, throttling, and deployment on AWS with Docker.
+                        </p>
+                        <div class="blog-tags">
+                            <span>Django</span>
+                            <span>REST API</span>
+                            <span>Backend</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section id="contact" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title reveal">
+                <span class="section-number">06.</span> Get In Touch
+            </h2>
+            <div class="contact-grid reveal">
+                <div class="contact-info">
+                    <h3>Let's work together</h3>
+                    <p>I'm currently open to new opportunities — whether it's a full-time role, freelance project, or an
+                        exciting collaboration. Feel free to reach out!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i data-lucide="mail" class="contact-icon"></i>
+                            <div>
+                                <span class="contact-label">Email</span>
+                                <a href="mailto:ritishsingha899@gmail.com">ritishsingha899@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="phone" class="contact-icon"></i>
+                            <div>
+                                <span class="contact-label">Phone</span>
+                                <a href="tel:+8801631931072">+880 1631931072</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="message-circle" class="contact-icon"></i>
+                            <div>
+                                <span class="contact-label">WhatsApp</span>
+                                <a href="https://wa.me/8801631931072" target="_blank" rel="noopener">+880 1631931072</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="map-pin" class="contact-icon"></i>
+                            <div>
+                                <span class="contact-label">Location</span>
+                                <span>Roomghata, Dewan Bazar, Chattogram, Bangladesh</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-socials">
+                        <a href="https://github.com/ritishsingha999" target="_blank" rel="noopener" class="social-btn">
+                            <i data-lucide="github"></i> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/ritish-singha/" target="_blank" rel="noopener"
+                            class="social-btn">
+                            <i data-lucide="linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://x.com/Ritish_Singha" target="_blank" rel="noopener" class="social-btn">
+                            <i data-lucide="twitter"></i> Twitter
+                        </a>
+                        <a href="https://medium.com/@ritishsingh900" target="_blank" rel="noopener" class="social-btn">
+                            <i data-lucide="pen-tool"></i> Medium
+                        </a>
+                        <a href="https://www.reddit.com/user/Such_Cash1472/" target="_blank" rel="noopener"
+                            class="social-btn">
+                            <i data-lucide="message-square"></i> Reddit
+                        </a>
+                        <a href="https://www.facebook.com/arko.468704/" target="_blank" rel="noopener"
+                            class="social-btn">
+                            <i data-lucide="facebook"></i> Facebook
+                        </a>
+                        <a href="https://wa.me/8801631931072" target="_blank" rel="noopener" class="social-btn">
+                            <i data-lucide="message-circle"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Project Inquiry" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+                        <i data-lucide="send" class="btn-icon"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="#hero" class="footer-logo" aria-label="Logo">
+                    <div class="logo-text-fade" style="animation-delay: 0.5s;">
+                        <span class="logo-bracket">&lt;</span>RS<span class="logo-bracket"> /&gt;</span>
+                    </div>
+                    <svg class="signature-svg" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+                        <text x="0" y="32" class="signature-text-footer">Ritish Singha</text>
+                    </svg>
+                </a>
+                <p class="footer-text">Designed & Built by Ritish Singha</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/ritishsingha999" target="_blank" rel="noopener" aria-label="GitHub">
+                        <i data-lucide="github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ritish-singha/" target="_blank" rel="noopener"
+                        aria-label="LinkedIn">
+                        <i data-lucide="linkedin"></i>
+                    </a>
+                    <a href="https://x.com/Ritish_Singha" target="_blank" rel="noopener" aria-label="X (Twitter)">
+                        <i data-lucide="twitter"></i>
+                    </a>
+                    <a href="https://medium.com/@ritishsingh900" target="_blank" rel="noopener" aria-label="Medium">
+                        <i data-lucide="pen-tool"></i>
+                    </a>
+                    <a href="https://www.facebook.com/arko.468704/" target="_blank" rel="noopener"
+                        aria-label="Facebook">
+                        <i data-lucide="facebook"></i>
+                    </a>
+                    <a href="https://wa.me/8801631931072" target="_blank" rel="noopener" aria-label="WhatsApp">
+                        <i data-lucide="message-circle"></i>
+                    </a>
+                    <a href="mailto:ritishsingha899@gmail.com" aria-label="Email">
+                        <i data-lucide="mail"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ritish Singha. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <button class="chat-toggle-btn" id="chat-toggle-btn" aria-label="Open Chat">
+        <i data-lucide="message-square"></i>
+    </button>
+    <div class="chatbot-widget" id="chatbot-widget">
+        <div class="chat-header">
+            <div class="chat-bot-info">
+                <div class="chat-avatar"><i data-lucide="bot"></i></div>
+                <span>RS AI</span>
+            </div>
+            <button id="close-chat" class="close-chat-btn" aria-label="Close Chat"><i data-lucide="x"></i></button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot-message">Hi there! 👋 I'm RS AI. How can I help you today?
+            </div>
+        </div>
+        <div class="chat-options" id="chat-options">
+            <button class="chat-prompt"
+                data-response="Ritish is a Software Engineer specializing in Python, Django, and Machine Learning. He's built multiple full-stack applications and loves competitive programming!">Tell
+                me about Ritish</button>
+            <button class="chat-prompt"
+                data-response="You can email him at ritishsingha899@gmail.com, or reach out on LinkedIn. His WhatsApp is +8801631931072.">How
+                to contact him?</button>
+            <button class="chat-prompt"
+                data-response="He recently founded Innova Tech, won 2nd Runner-up at EDU HackFest, and completed his thesis on Network Traffic Data Augmentation using WGANs & LLMs.">Recent
+                achievements?</button>
+        </div>
+        <form class="chat-input-area" id="chat-input-form">
+            <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off">
+            <button type="submit" aria-label="Send Message"><i data-lucide="send"></i></button>
+        </form>
+    </div>
+
+    <!-- Project Detail Modal -->
+    <div class="project-modal-overlay" id="project-modal-overlay">
+        <div class="project-modal">
+            <button class="project-modal-close" id="project-modal-close" aria-label="Close Modal"><i data-lucide="x"></i></button>
+            <div class="pm-header">
+                <div class="pm-status" id="pm-status"></div>
+                <h2 class="pm-title" id="pm-title"></h2>
+                <p class="pm-role" id="pm-role"></p>
+            </div>
+            <div class="pm-body">
+                <div class="pm-section">
+                    <h4><i data-lucide="alert-triangle" class="pm-icon"></i> The Problem</h4>
+                    <p id="pm-problem"></p>
+                </div>
+                <div class="pm-section">
+                    <h4><i data-lucide="lightbulb" class="pm-icon"></i> The Solution</h4>
+                    <p id="pm-solution"></p>
+                </div>
+                <div class="pm-section">
+                    <h4><i data-lucide="list-checks" class="pm-icon"></i> Key Features</h4>
+                    <ul class="pm-features" id="pm-features"></ul>
+                </div>
+            </div>
+            <div class="pm-footer" id="pm-footer">
+                <a href="#" class="btn btn-primary pm-github-btn" id="pm-github" target="_blank" rel="noopener">
+                    <i data-lucide="github" class="btn-icon"></i> View on GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Terminal Easter Egg -->
+    <div class="terminal-overlay" id="terminal-overlay">
+        <div class="terminal-window" id="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <span class="terminal-title">ritish@portfolio:~$</span>
+                <button class="terminal-close-btn" id="terminal-close" aria-label="Close Terminal"><i data-lucide="x"></i></button>
+            </div>
+            <div class="terminal-body" id="terminal-body">
+                <div class="terminal-line"><span class="t-green">ritish@portfolio</span>:<span class="t-blue">~</span>$ <span class="t-muted">Type 'help' to see available commands</span></div>
+            </div>
+            <div class="terminal-input-line">
+                <span class="terminal-prompt"><span class="t-green">ritish@portfolio</span>:<span class="t-blue">~</span>$ </span>
+                <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" autofocus>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- TagCloud JS for 3D Sphere -->
+    <script src="https://cdn.jsdelivr.net/npm/TagCloud@2.2.0/dist/TagCloud.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
