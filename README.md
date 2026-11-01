@@ -1,6 +1,6 @@
 # Ritish Singha — Software Engineer Portfolio
 
-Live Demo: [https://ritish-portfolio-rs.vercel.app/](https://rsingh-portfolio.vercel.app/)
+Live Demo: [https://rsingh-portfolio.vercel.app/](https://rsingh-portfolio.vercel.app/)
 
 A modern, high-performance developer portfolio featuring an interactive terminal, recruiter fast-pitch mode, live CV previewer, 3D interactive skill sphere, audio effects, and ambient music widget.
 
