@@ -53,3 +53,4 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - **LinkedIn**: [ritish-singha](https://www.linkedin.com/in/ritish-singha/)
 - **Email**: ritishsingha899@gmail.com
 - **Website**: [ritish-portfolio-rs.vercel.app](https://ritish-portfolio-rs.vercel.app/)
+
