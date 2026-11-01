@@ -61,6 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---- 3D Skill Sphere ---- //
     initSkillSphere();
 
+    // ---- Recruiter Mode & Resume Quick Preview ---- //
+    initRecruiterAndResumeModals();
+
     // Safety: Expose icon refresh for dynamic content
     window.refreshIcons = safeCreateIcons;
 });
@@ -711,6 +714,20 @@ function initTerminal() {
             processCommand(cmd);
             terminalInput.value = '';
         }
+        if (e.key === 'Tab') {
+            e.preventDefault();
+            const currentVal = terminalInput.value.trim();
+            const availableCommands = [
+                'help', 'whoami', 'ls projects', 'cat skills.txt', 'cat education',
+                'contact', 'open github', 'open linkedin', 'open codeforces',
+                'neofetch', 'status', 'theme cyberpunk', 'theme emerald', 'theme tokyo',
+                'download cv', 'date', 'history', 'clear', 'exit'
+            ];
+            const match = availableCommands.find(c => c.startsWith(currentVal.toLowerCase()));
+            if (match) {
+                terminalInput.value = match;
+            }
+        }
         if (e.key === 'ArrowUp') {
             e.preventDefault();
             if (historyIndex > 0) {
@@ -756,9 +773,12 @@ function initTerminal() {
             case 'help':
                 addLine(`<span class="t-yellow">Available commands:</span>`);
                 addLine(`  <span class="t-cyan">whoami</span>         — About Ritish`);
+                addLine(`  <span class="t-cyan">status</span>         — Real-time availability & stats`);
                 addLine(`  <span class="t-cyan">ls projects</span>   — List all projects`);
                 addLine(`  <span class="t-cyan">cat skills.txt</span>— Show technical skills`);
                 addLine(`  <span class="t-cyan">cat education</span> — Education details`);
+                addLine(`  <span class="t-cyan">theme &lt;name&gt;</span>    — Switch theme (emerald, cyberpunk, tokyo)`);
+                addLine(`  <span class="t-cyan">download cv</span>    — Trigger CV download compilation`);
                 addLine(`  <span class="t-cyan">contact</span>       — Contact information`);
                 addLine(`  <span class="t-cyan">open github</span>   — Open GitHub profile`);
                 addLine(`  <span class="t-cyan">open linkedin</span> — Open LinkedIn profile`);
@@ -767,6 +787,43 @@ function initTerminal() {
                 addLine(`  <span class="t-cyan">history</span>       — Command history`);
                 addLine(`  <span class="t-cyan">clear</span>         — Clear terminal`);
                 addLine(`  <span class="t-cyan">exit</span>          — Close terminal`);
+                addLine(`<span class="t-muted">Tip: Press [Tab] to auto-complete commands!</span>`);
+                break;
+
+            case 'status':
+                addLine(`<span class="t-green">● SYSTEM & AVAILABILITY STATUS:</span>`);
+                addLine(`  <span class="t-yellow">Status:</span> Open for Software Engineer Roles & Internships`);
+                addLine(`  <span class="t-yellow">Education:</span> BSc in CSE @ East Delta Univ (151/166 Credits)`);
+                addLine(`  <span class="t-yellow">Thesis:</span> WGAN Network Augmentation with LLM`);
+                addLine(`  <span class="t-yellow">Problem Solving:</span> 300+ Codeforces Solved`);
+                break;
+
+            case 'theme':
+                if (arg === 'cyberpunk') {
+                    document.documentElement.style.setProperty('--accent-primary', '#06b6d4');
+                    document.documentElement.style.setProperty('--accent-secondary', '#ec4899');
+                    addLine(`<span class="t-cyan">Theme switched to Cyberpunk Neon!</span>`);
+                } else if (arg === 'tokyo' || arg === 'tokyonight') {
+                    document.documentElement.style.setProperty('--accent-primary', '#7aa2f7');
+                    document.documentElement.style.setProperty('--accent-secondary', '#bb9af7');
+                    addLine(`<span class="t-blue">Theme switched to Tokyo Night!</span>`);
+                } else if (arg === 'emerald' || arg === 'default') {
+                    document.documentElement.style.removeProperty('--accent-primary');
+                    document.documentElement.style.removeProperty('--accent-secondary');
+                    addLine(`<span class="t-green">Theme restored to Emerald Default!</span>`);
+                } else {
+                    addLine(`<span class="t-red">theme: unknown theme '${arg}'. Try: emerald, cyberpunk, tokyo</span>`);
+                }
+                break;
+
+            case 'download':
+                if (arg === 'cv' || arg === 'resume') {
+                    addLine(`<span class="t-green">Triggering CV download pipeline...</span>`);
+                    const resumeBtn = document.getElementById('hero-resume-btn');
+                    if (resumeBtn) resumeBtn.click();
+                } else {
+                    addLine(`<span class="t-red">download: specify what to download (e.g. 'download cv')</span>`);
+                }
                 break;
 
             case 'whoami':
@@ -1121,7 +1178,7 @@ function initResumeDownload() {
                 
                 // Trigger real download (assuming a PDF is placed in root folder as expected)
                 const link = document.createElement('a');
-                link.href = 'RS_CV.pdf'; 
+                link.href = 'CV.pdf'; 
                 link.download = 'Ritish_Singha_CV.pdf';
                 document.body.appendChild(link);
                 link.click();
@@ -1163,4 +1220,80 @@ function initSkillSphere() {
         
         TagCloud(container, texts, options);
     }
+}
+
+/* ============================================
+   RECRUITER MODE & RESUME PREVIEW MODALS
+   ============================================ */
+function initRecruiterAndResumeModals() {
+    // Recruiter Modal
+    const recruiterBtn = document.getElementById('recruiter-toggle-btn');
+    const recruiterOverlay = document.getElementById('recruiter-modal-overlay');
+    const recruiterClose = document.getElementById('recruiter-modal-close');
+    const recPreviewBtn = document.getElementById('rec-preview-cv-btn');
+
+    // Resume Preview Modal
+    const previewCvBtn = document.getElementById('preview-cv-btn');
+    const resumeOverlay = document.getElementById('resume-modal-overlay');
+    const resumeClose = document.getElementById('resume-modal-close');
+
+    function openRecruiterModal(e) {
+        if (e) e.preventDefault();
+        if (recruiterOverlay) {
+            recruiterOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            if (window.refreshIcons) window.refreshIcons();
+        }
+    }
+
+    function closeRecruiterModal() {
+        if (recruiterOverlay) {
+            recruiterOverlay.classList.remove('active');
+            if (!resumeOverlay || !resumeOverlay.classList.contains('active')) {
+                document.body.style.overflow = '';
+            }
+        }
+    }
+
+    function openResumeModal(e) {
+        if (e) e.preventDefault();
+        closeRecruiterModal();
+        if (resumeOverlay) {
+            resumeOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            if (window.refreshIcons) window.refreshIcons();
+        }
+    }
+
+    function closeResumeModal() {
+        if (resumeOverlay) {
+            resumeOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (recruiterBtn) recruiterBtn.addEventListener('click', openRecruiterModal);
+    if (recruiterClose) recruiterClose.addEventListener('click', closeRecruiterModal);
+    if (recruiterOverlay) {
+        recruiterOverlay.addEventListener('click', (e) => {
+            if (e.target === recruiterOverlay) closeRecruiterModal();
+        });
+    }
+
+    if (previewCvBtn) previewCvBtn.addEventListener('click', openResumeModal);
+    if (recPreviewBtn) recPreviewBtn.addEventListener('click', openResumeModal);
+    if (resumeClose) resumeClose.addEventListener('click', closeResumeModal);
+    if (resumeOverlay) {
+        resumeOverlay.addEventListener('click', (e) => {
+            if (e.target === resumeOverlay) closeResumeModal();
+        });
+    }
+
+    // Keyboard support
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeRecruiterModal();
+            closeResumeModal();
+        }
+    });
 }
