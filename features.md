@@ -26,7 +26,7 @@ A dedicated summary modal tailored specifically for recruiters and engineering h
 - **How to trigger:** Click the **"Recruiter Mode"** glowing pill button in the top navigation bar.
 - **Features:**
   - **Live Availability Indicator:** Displays `🟢 OPEN FOR HIRE / INTERNSHIPS`.
-  - **Instant Overview:** Degree stats (East Delta University, 151/166 credits completed), core stack, thesis details.
+  - **Instant Overview:** Degree timeline (East Delta University, March 2022 – May 2026 Expected), core stack, Protein Language Models thesis details under Saklain Abdullah.
   - **Competitive Programming Summary:** 300+ Codeforces problems solved, ICPC Asia Regional participant.
   - **One-Click Actions:** Quick Preview CV, Download PDF, Email Ritish, or initiate a WhatsApp chat directly.
 
@@ -127,7 +127,7 @@ The following development plan outlines prioritized upgrades and upcoming featur
 |  PHASE 3: CASE STUDIES & ARCHITECTURE DEEP-DIVES                              |
 |  [ ] Tabbed Project Modals (Overview | Architecture | Challenges | Metrics)   |
 |  [ ] Interactive System Flow Diagrams (Mermaid/SVG)                          |
-|  [ ] Live Interactive Code / Model Playground (WGAN or ML Demo in-browser)   |
+|  [ ] Live Interactive Code / Model Playground (Protein LM or ML Demo in-browser)   |
 +-------------------------------------------------------------------------------+
 |  PHASE 4: PERFORMANCE & ACCESSIBILITY (PWA)                                   |
 |  [ ] PWA Manifest (manifest.json) & Service Worker for Offline Browsing      |
@@ -154,7 +154,7 @@ The following development plan outlines prioritized upgrades and upcoming featur
      - **Challenges & Trade-offs:** Database indexing choices, caching decisions, and query optimization.
      - **Metrics:** Throughput, latency improvements, and test coverage stats.
 2. **Interactive Machine Learning Sandbox**:
-   - Lightweight in-browser demo simulating the WGAN network traffic generation or customer retention classifier using ONNX Runtime Web.
+   - Lightweight in-browser demo simulating biological protein sequence weight editing or customer retention classifier using ONNX Runtime Web.
 
 ### Phase 4: Performance, Mobile & Progressive Web App (PWA)
 1. **Progressive Web App (PWA)**:

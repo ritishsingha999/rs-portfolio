@@ -376,10 +376,10 @@ function initTypingAnimation() {
     const phrases = [
         'Software Engineer',
         'Full-Stack Django Developer',
-        'Competitive Programmer',
-        'Machine Learning Enthusiast',
-        'Problem Solver',
-        'Open Source Contributor'
+        'Competitive Programmer (300+ Solved)',
+        'Protein Language Model Researcher',
+        'EDU HackFest 2025 Runner-Up',
+        'Technical Problem Solver'
     ];
 
     let phraseIndex = 0;
@@ -605,9 +605,11 @@ function initChatbot() {
     function getSimulatedResponse(text) {
         const lowerText = text.toLowerCase();
         if(lowerText.includes('hello') || lowerText.includes('hi ')) return 'Hello! How can I help you learn more about Ritish?';
-        if(lowerText.includes('contact') || lowerText.includes('email') || lowerText.includes('phone')) return 'You can reach Ritish at ritishsingha899@gmail.com, or call/WhatsApp him at +8801631931072.';
-        if(lowerText.includes('project') || lowerText.includes('work')) return 'Ritish has built robust apps like a Student Data Store, Recruitment Management System, and Digital Wallet. Check the Projects section!';
-        if(lowerText.includes('skill') || lowerText.includes('tech')) return 'His primary stack is Python, Django, C++, and Machine Learning. He also uses React, JavaScript, and Tailwind CSS.';
+        if(lowerText.includes('contact') || lowerText.includes('email') || lowerText.includes('phone') || lowerText.includes('location')) return 'You can reach Ritish at ritishsingha899@gmail.com, or call/WhatsApp him at +880 1631931072. Location: Roomghata, Dewan Bazar, Chattogram.';
+        if(lowerText.includes('thesis') || lowerText.includes('research')) return 'His undergraduate thesis is "Beyond Catastrophic Forgetting: Orthogonally Projected Weight Editing Dominates the Safety–Utility Pareto Frontier in Protein Language Models" advised by Saklain Abdullah at East Delta University.';
+        if(lowerText.includes('project') || lowerText.includes('work')) return 'Ritish is currently developing a Recruitment Management System with ATS and a Digital Wallet System, alongside research in Protein Language Models. Check the Projects section!';
+        if(lowerText.includes('skill') || lowerText.includes('tech')) return 'His stack includes Python, Django (REST Framework), Dot NET, C, C++, C#, PostgreSQL, MySQL, SQLite, JavaScript, TypeScript, Tailwind CSS, Playwright, Postman, Git, and Machine Learning.';
+        if(lowerText.includes('hackathon') || lowerText.includes('hackfest') || lowerText.includes('award')) return 'Ritish secured 2nd Runner-Up at EDU HackFest 2025 (55-hour innovation sprint against 32 teams)!';
         return "Thanks for your message! Since I'm an AI simulation, I might not have a perfect answer for that. Feel free to contact Ritish directly via the Contact section!";
     }
 }
@@ -793,9 +795,10 @@ function initTerminal() {
             case 'status':
                 addLine(`<span class="t-green">● SYSTEM & AVAILABILITY STATUS:</span>`);
                 addLine(`  <span class="t-yellow">Status:</span> Open for Software Engineer Roles & Internships`);
-                addLine(`  <span class="t-yellow">Education:</span> BSc in CSE @ East Delta Univ (151/166 Credits)`);
-                addLine(`  <span class="t-yellow">Thesis:</span> WGAN Network Augmentation with LLM`);
-                addLine(`  <span class="t-yellow">Problem Solving:</span> 300+ Codeforces Solved`);
+                addLine(`  <span class="t-yellow">Education:</span> BSc in CSE @ East Delta Univ (March 2022 – May 2026 Expected)`);
+                addLine(`  <span class="t-yellow">Thesis:</span> Beyond Catastrophic Forgetting in Protein LMs (Advisor: Saklain Abdullah)`);
+                addLine(`  <span class="t-yellow">Problem Solving:</span> 300+ Codeforces Solved & LeetCode`);
+                addLine(`  <span class="t-yellow">Awards:</span> 2nd Runner-Up @ EDU HackFest 2025 (55-hour sprint)`);
                 break;
 
             case 'theme':
@@ -828,21 +831,22 @@ function initTerminal() {
 
             case 'whoami':
                 addLine(`<span class="t-yellow">Ritish Singha</span>`);
-                addLine(`Software Engineer | Python Django | ML Enthusiast`);
-                addLine(`Founder & Lead — Innova Tech`);
-                addLine(`BSc in CSE @ East Delta University (2022-2026)`);
-                addLine(`300+ Problems Solved on Codeforces`);
-                addLine(`ICPC Asia Dhaka Regional Participant`);
+                addLine(`Computer Science & Engineering Undergraduate @ East Delta University`);
+                addLine(`Full-Stack Python Django Developer | ML Researcher`);
+                addLine(`Timeline: March 2022 – May 2026 (Expected)`);
+                addLine(`300+ Problems Solved on Codeforces & LeetCode`);
+                addLine(`2nd Runner-Up @ EDU HackFest 2025 (55-hr innovation sprint)`);
+                addLine(`Participant: Premier IUPC 2024 & ICPC Asia Dhaka Regional 2023`);
                 break;
 
             case 'ls':
                 if (arg === 'projects' || arg === '') {
-                    addLine(`<span class="t-blue">drwxr-xr-x</span>  <span class="t-green">Student-Data-Store/</span>`);
-                    addLine(`<span class="t-blue">drwxr-xr-x</span>  <span class="t-green">Recruitment-Management-System/</span>`);
+                    addLine(`<span class="t-blue">drwxr-xr-x</span>  <span class="t-green">Recruitment-Management-System-ATS/</span>`);
                     addLine(`<span class="t-blue">drwxr-xr-x</span>  <span class="t-green">Digital-Wallet-System/</span>`);
+                    addLine(`<span class="t-blue">drwxr-xr-x</span>  <span class="t-green">Protein-Language-Models-Weight-Editing/</span>`);
+                    addLine(`<span class="t-blue">drwxr-xr-x</span>  <span class="t-green">Student-Data-Store/</span>`);
                     addLine(`<span class="t-blue">drwxr-xr-x</span>  <span class="t-green">ML-Customer-Retention-Engine/</span>`);
                     addLine(`<span class="t-blue">drwxr-xr-x</span>  <span class="t-green">Codeforces-Solutions-Archive/</span>`);
-                    addLine(`<span class="t-blue">drwxr-xr-x</span>  <span class="t-green">Network-Traffic-WGAN/</span>`);
                 } else {
                     addLine(`<span class="t-red">ls: cannot access '${arg}': No such file or directory</span>`);
                 }
@@ -851,19 +855,24 @@ function initTerminal() {
             case 'cat':
                 if (arg === 'skills.txt' || arg === 'skills') {
                     addLine(`<span class="t-yellow">── Languages ──</span>`);
-                    addLine(`  Python • C++ • JavaScript • C • Java • SQL`);
-                    addLine(`<span class="t-yellow">── Frameworks ──</span>`);
-                    addLine(`  Django • Django REST • React • Next.js`);
-                    addLine(`<span class="t-yellow">── Tools & DB ──</span>`);
-                    addLine(`  PostgreSQL • MongoDB • Git • GitHub • Docker`);
-                    addLine(`<span class="t-yellow">── AI / ML ──</span>`);
-                    addLine(`  WGAN • LLM • TensorFlow • PyTorch • Pandas`);
+                    addLine(`  C • C++ • C# • Python • HTML5 • CSS3 • JavaScript (Intermediate) • TypeScript`);
+                    addLine(`<span class="t-yellow">── Frameworks & Libraries ──</span>`);
+                    addLine(`  Django • Django REST Framework • Dot NET (.NET) • Bootstrap • Tailwind CSS`);
+                    addLine(`<span class="t-yellow">── Databases ──</span>`);
+                    addLine(`  PostgreSQL • MySQL • SQLite`);
+                    addLine(`<span class="t-yellow">── Tools & Technologies ──</span>`);
+                    addLine(`  Git • GitHub • Postman • Linux • Playwright • QA Tools`);
+                    addLine(`<span class="t-yellow">── Testing & Methodologies ──</span>`);
+                    addLine(`  Unit Testing • Integration Testing • Scrum • Agile • Project Management`);
+                    addLine(`<span class="t-yellow">── Specialized Skills ──</span>`);
+                    addLine(`  Django ORM • Asynchronous Programming • Machine Learning • Client Collaboration`);
                 } else if (arg === 'education' || arg === 'edu') {
-                    addLine(`<span class="t-yellow">East Delta University</span>`);
-                    addLine(`BSc in Computer Science & Engineering`);
-                    addLine(`2022 — 2026 | 151/166 Credits Completed`);
-                    addLine(`Thesis: Network Traffic Data Augmentation`);
-                    addLine(`  using WGAN guided by LLM`);
+                    addLine(`<span class="t-yellow">East Delta University, Chattogram (EDU)</span>`);
+                    addLine(`Bachelor of Science in Computer Science and Engineering`);
+                    addLine(`Timeline: March 2022 — May 2026 (Expected)`);
+                    addLine(`Thesis: Beyond Catastrophic Forgetting: Orthogonally Projected Weight Editing`);
+                    addLine(`  Dominates the Safety–Utility Pareto Frontier in Protein Language Models`);
+                    addLine(`Advisor: Saklain Abdullah, Lecturer, East Delta University`);
                 } else {
                     addLine(`<span class="t-red">cat: ${arg || '???'}: No such file or directory</span>`);
                 }
@@ -1202,10 +1211,11 @@ function initResumeDownload() {
 function initSkillSphere() {
     const container = '#skill-sphere';
     const texts = [
-        'Python', 'Django', 'C++', 'Machine Learning',
-        'TypeScript', 'React', 'HTML5', 'CSS3',
-        'Git', 'PostgreSQL', 'Docker', 'REST API',
-        'Tailwind', 'Unit Testing', 'AWS', 'Linux'
+        'Python', 'Django', 'C++', 'C#',
+        'Dot NET', 'PostgreSQL', 'MySQL', 'SQLite',
+        'TypeScript', 'JavaScript', 'Tailwind', 'Bootstrap',
+        'Git', 'GitHub', 'Postman', 'Playwright',
+        'Machine Learning', 'Django ORM', 'Unit Testing', 'Agile/Scrum'
     ];
     
     // Check if container exists and TagCloud is loaded
