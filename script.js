@@ -1187,7 +1187,7 @@ function initResumeDownload() {
                 
                 // Trigger real download (assuming a PDF is placed in root folder as expected)
                 const link = document.createElement('a');
-                link.href = 'CV.pdf'; 
+                link.href = 'RS_CV.pdf'; 
                 link.download = 'Ritish_Singha_CV.pdf';
                 document.body.appendChild(link);
                 link.click();
